@@ -69,6 +69,7 @@ target_include_directories( nest PRIVATE
     ${PROJECT_SOURCE_DIR}/sli
     ${PROJECT_SOURCE_DIR}/nestkernel
     ${SLI_MODULE_INCLUDE_DIRS}
+    ${BOOST_INCLUDE_DIR}
     )
 
 

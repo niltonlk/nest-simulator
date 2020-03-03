@@ -40,6 +40,7 @@ target_include_directories( precise PRIVATE
     ${PROJECT_SOURCE_DIR}/librandom
     ${PROJECT_SOURCE_DIR}/sli
     ${PROJECT_SOURCE_DIR}/nestkernel
+    ${BOOST_INCLUDE_DIR}
     )
 
 install( TARGETS precise
