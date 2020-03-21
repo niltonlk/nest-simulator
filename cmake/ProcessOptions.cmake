@@ -566,6 +566,8 @@ function( NEST_PROCESS_WITH_BOOST )
       set( BOOST_LIBRARIES "${Boost_LIBRARIES}" PARENT_SCOPE )
       set( BOOST_INCLUDE_DIR "${Boost_INCLUDE_DIR}" PARENT_SCOPE )
       set( BOOST_VERSION "${Boost_MAJOR_VERSION}.${Boost_MINOR_VERSION}.${Boost_SUBMINOR_VERSION}" PARENT_SCOPE )
+      
+      include_directories( ${Boost_INCLUDE_DIR} )
     endif ()
   endif ()
 endfunction()
