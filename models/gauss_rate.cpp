@@ -31,6 +31,10 @@ nonlinearities_gauss_rate::get( DictionaryDatum& d ) const
   def< double >( d, names::g, g_ );
   def< double >( d, names::mu, mu_ );
   def< double >( d, names::sigma, sigma_ );
+  def< double >( d, names::g_ex, g_ex_ );
+  def< double >( d, names::g_in, g_in_ );
+  def< double >( d, names::theta_ex, theta_ex_ );
+  def< double >( d, names::theta_in, theta_in_ );
 }
 
 void
@@ -39,6 +43,10 @@ nonlinearities_gauss_rate::set( const DictionaryDatum& d, Node* node )
   updateValueParam< double >( d, names::g, g_, node );
   updateValueParam< double >( d, names::mu, mu_, node );
   updateValueParam< double >( d, names::sigma, sigma_, node );
+  updateValueParam< double >( d, names::g_ex, g_ex_, node );
+  updateValueParam< double >( d, names::g_in, g_in_, node );
+  updateValueParam< double >( d, names::theta_ex, theta_ex_, node );
+  updateValueParam< double >( d, names::theta_in, theta_in_, node );
 }
 
 /*

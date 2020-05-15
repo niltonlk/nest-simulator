@@ -31,6 +31,10 @@ nonlinearities_sigmoid_rate::get( DictionaryDatum& d ) const
   def< double >( d, names::g, g_ );
   def< double >( d, names::beta, beta_ );
   def< double >( d, names::theta, theta_ );
+  def< double >( d, names::g_ex, g_ex_ );
+  def< double >( d, names::g_in, g_in_ );
+  def< double >( d, names::theta_ex, theta_ex_ );
+  def< double >( d, names::theta_in, theta_in_ );
 }
 
 void
@@ -39,6 +43,10 @@ nonlinearities_sigmoid_rate::set( const DictionaryDatum& d, Node* node )
   updateValueParam< double >( d, names::g, g_, node );
   updateValueParam< double >( d, names::beta, beta_, node );
   updateValueParam< double >( d, names::theta, theta_, node );
+  updateValueParam< double >( d, names::g_ex, g_ex_, node );
+  updateValueParam< double >( d, names::g_in, g_in_, node );
+  updateValueParam< double >( d, names::theta_ex, theta_ex_, node );
+  updateValueParam< double >( d, names::theta_in, theta_in_, node );
 }
 
 /*

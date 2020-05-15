@@ -83,8 +83,13 @@ transformers.
  g                 real    Gain parameter
  mu                real    Mean of the Gaussian gain function
  sigma             real    Standard deviation of Gaussian gain function
+ g_ex              real    Linear factor in multiplicative coupling
+ g_in              real    Linear factor in multiplicative coupling
+ theta_ex          real    Shift in multiplicative coupling
+ theta_in          real    Shift in multiplicative coupling
  linear_summation  boolean Specifies type of non-linearity (see above)
  rectify_output    boolean Switch to restrict rate to values >= 0
+ mult_coupling     boolean Switch to enable/disable multiplicative coupling
 =================  ======= ==============================================
 
 Note:
@@ -133,6 +138,13 @@ private:
   double g_;
   double mu_;
   double sigma_;
+  /** linear factor in multiplicative excitatory coupling*/
+  double g_ex_;
+  /** linear factor in multiplicative inhibitory coupling*/
+  double g_in_;
+  /** offset in multiplicative coupling*/
+  double theta_ex_;
+  double theta_in_;
 
 public:
   /** sets default parameters */
@@ -140,6 +152,10 @@ public:
     : g_( 1.0 )
     , mu_( 0.0 )
     , sigma_( 0.0 )
+    , g_ex_( 1.0 )
+    , g_in_( 1.0 )
+    , theta_ex_( 0.0 )
+    , theta_in_( 0.0 )
   {
   }
 
@@ -160,13 +176,13 @@ nonlinearities_gauss_rate::input( double h )
 inline double
 nonlinearities_gauss_rate::mult_coupling_ex( double rate )
 {
-  return 1.;
+  return g_ex_ * ( theta_ex_ - rate );
 }
 
 inline double
 nonlinearities_gauss_rate::mult_coupling_in( double rate )
 {
-  return 1.;
+  return g_in_ * ( theta_in_ + rate );
 }
 
 typedef rate_neuron_ipn< nest::nonlinearities_gauss_rate > gauss_rate_ipn;
