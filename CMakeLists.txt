@@ -304,7 +304,7 @@ set( ALL_INCLUDES_tmp
   "${GSL_INCLUDE_DIRS}"
   "${LIBNEUROSIM_INCLUDE_DIRS}"
   "${MUSIC_INCLUDE_DIRS}"
-  "${MPI_CXX_INCLUDE_PATH}"
+  "${MPI_CXX_INCLUDE_DIRS}"
   "${BOOST_INCLUDE_DIR}" )
 set( ALL_INCLUDES "" )
 foreach ( INC ${ALL_INCLUDES_tmp} ${with-includes} )
